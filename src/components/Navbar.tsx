@@ -1,8 +1,8 @@
 import React from 'react';
-import { Clapperboard, Users, Workflow, BookOpenCheck, Search, FolderOpen } from 'lucide-react';
+import { Clapperboard, Users, Workflow, Sparkles, BookOpenCheck, Search, FolderOpen } from 'lucide-react';
 import { BRAND_DRIVE_ROOT_URL } from '../data/brandsData';
 
-export type NavTab = 'about' | 'process' | 'brands';
+export type NavTab = 'about' | 'process' | 'prompts' | 'brands';
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -22,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const allTabs: { id: NavTab; label: string; icon: React.ReactNode; badge?: string }[] = [
     { id: 'about', label: 'About', icon: <Users className="w-4 h-4" /> },
     { id: 'process', label: 'Process', icon: <Workflow className="w-4 h-4" />, badge: '5 Steps' },
+    { id: 'prompts', label: 'Prompt Layout', icon: <Sparkles className="w-4 h-4" />, badge: 'Image & Video' },
     { id: 'brands', label: 'Guideline of Brands', icon: <BookOpenCheck className="w-4 h-4" />, badge: `${brandCount}` },
   ];
   const tabs = showAbout ? allTabs : allTabs.filter((t) => t.id !== 'about');

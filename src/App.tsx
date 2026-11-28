@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, type NavTab } from './components/Navbar';
 import { AboutSection } from './components/AboutSection';
 import { ProcessSection } from './components/ProcessSection';
+import { PromptLayoutSection } from './components/PromptLayoutSection';
 import { BrandGuidelineSection } from './components/BrandGuidelineSection';
 import { ImageLightbox, type LightboxPayload } from './components/ImageLightbox';
 import { QuickBrandSearchModal } from './components/QuickBrandSearchModal';
@@ -82,6 +83,8 @@ export function App() {
           />
         )}
 
+        {activeTab === 'prompts' && <PromptLayoutSection />}
+
         {activeTab === 'brands' && (
           <BrandGuidelineSection
             selectedBrandSlug={selectedBrandSlug}
@@ -104,6 +107,9 @@ export function App() {
             )}
             <button onClick={() => handleTabChange('process')} className="hover:text-slate-200 cursor-pointer">
               Process
+            </button>
+            <button onClick={() => handleTabChange('prompts')} className="hover:text-slate-200 cursor-pointer">
+              Prompt Layout
             </button>
             <button onClick={() => handleTabChange('brands')} className="hover:text-slate-200 cursor-pointer">
               Guideline of Brands ({BRANDS.length})
